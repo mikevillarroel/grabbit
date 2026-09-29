@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:480px;margin:40px auto;padding:0 20px;color:#222}
+h2{font-size:20px}
+label{display:block;margin:18px 0 6px;font-weight:600}
+input{width:100%;padding:10px;font-size:15px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
+button{margin-top:16px;padding:10px 22px;border:none;border-radius:8px;background:#0095f6;color:#fff;font-size:15px;cursor:pointer}
+button:hover{background:#0081d6}
+#status{margin-top:12px;color:#0a0;font-size:14px;min-height:20px}
+p.hint{color:#666;font-size:13px}
+</style></head>
+<body>
+<h2>Grabbit — Options</h2>
+<label for="folder">Download subfolder</label>
+<input id="folder" type="text" placeholder="e.g. Instagram">
+<p class="hint">Files save to your Downloads folder, inside this subfolder. Leave empty to save directly in Downloads. The extension remembers this setting.</p>
+<label style="margin-top:20px;font-weight:normal;display:flex;gap:8px;align-items:center">
+<input id="saveas" type="checkbox" style="width:auto"> Always show "Save as" dialog
+</label>
+<p class="hint">When on, Chrome asks where to save each time — and Chrome itself remembers the last folder you picked.</p>
+<button id="save">Save</button>
+<div id="status"></div>
+<script src="options.js"></script>
+</body></html>
