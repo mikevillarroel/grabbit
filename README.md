@@ -13,6 +13,10 @@ Browse to any post or video, hit the ⬇ button, done — saved to your Download
 - Custom download subfolder + optional Save-As dialog
 - Original quality — never re-encoded
 
+
+## Screenshots
+
+
 ## Install
 
 **From the Chrome Web Store** (recommended): link coming soon — the listing is under review.
