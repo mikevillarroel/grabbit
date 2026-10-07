@@ -1,0 +1,60 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "https://www.instagram.com/*",
+        "https://www.tiktok.com/*",
+        "https://www.facebook.com/*",
+        "https://www.threads.com/*"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "description": "Download photos and videos from Instagram, TikTok, Facebook and Threads. Single posts or bulk-download a whole profile.",
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://www.tiktok.com/*",
+    "https://*.tiktokcdn.com/*",
+    "https://*.tiktokv.com/*",
+    "https://www.facebook.com/*",
+    "https://www.threads.com/*"
+  ],
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "Grabbit",
+  "options_page": "options.html",
+  "permissions": [
+    "downloads",
+    "storage",
+    "scripting",
+    "webRequest"
+  ],
+  "version": "2.7.7",
+  "commands": {
+    "download-media": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+D",
+        "mac": "Command+Shift+D"
+      },
+      "description": "Download current media"
+    }
+  }
+}
