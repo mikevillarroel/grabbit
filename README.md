@@ -15,7 +15,9 @@ Browse to any post or video, hit the ⬇ button, done — saved to your Download
 
 
 ## Screenshots
-
+![Hero](screenshots/1-hero.png)
+![How it works](screenshots/2-how-it-works.png)
+![Features](screenshots/3-features.png)
 
 
 
