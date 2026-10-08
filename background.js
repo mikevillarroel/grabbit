@@ -1,3 +1,16 @@
+// Hotkey: Ctrl+Shift+D / Cmd+Shift+D downloads the current media
+try {
+  chrome.commands.onCommand.addListener((command) => {
+    if (command === 'download-media') {
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (tabs && tabs[0]) {
+          chrome.tabs.sendMessage(tabs[0].id, { type: 'IGDL_SINGLE' }).catch(() => {});
+        }
+      });
+    }
+  });
+} catch (e) {}
+
 // IG Media Downloader — background service worker
 // Receives download requests from the content script and saves files.
 
@@ -82,11 +95,11 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
 async function downloadOne(url, filename, saveAs) {
   try {
-    // YouTube's googlevideo URLs often fail via chrome.downloads directly
+    // Some CDN URLs often fail via chrome.downloads directly
     // (auth/headers) — fetch the bytes first, then download as a blob.
     if (url.includes('googlevideo.com')) {
       const resp = await fetch(url, { credentials: 'include' });
-      if (!resp.ok) throw new Error('YouTube request failed: ' + resp.status);
+      if (!resp.ok) throw new Error('Request failed: ' + resp.status);
       const blob = await resp.blob();
       const blobUrl = URL.createObjectURL(new Blob([blob], { type: 'video/mp4' }));
       try {
